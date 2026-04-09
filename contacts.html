@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ІТ-Школа Tech-Edu | Контакти та Запис</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="header-logo">
+                <h1><i class="bi bi-cpu"></i> Tech-Edu</h1>
+            </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="index.html"><span>Головна</span></a></li>
+                    <li class="dropdown">
+                        <a href="courses.html"><span>Наші Курси ▾</span></a>
+                        <ul class="submenu">
+                            <li><a href="courses.html#frontend"><span>Front-end розробка</span></a></li>
+                            <li><a href="courses.html#python"><span>Python для початківців</span></a></li>
+                            <li><a href="courses.html#qa"><span>QA Тестування</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contacts.html"><span>Контакти</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-info">
+            <h2>Наші контакти</h2>
+            <ul>
+                <li><strong>Адреса:</strong> м. Харків, просп. Науки, 14</li>
+                <li><strong>Телефон:</strong> +38 (099) 123-45-67</li>
+                <li><strong>Email:</strong> info@tech-edu.com.ua</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section class="form-section">
+            <h2>Заявка на консультацію або вступ</h2>
+            <p>Заповніть форму нижче, і наш менеджер зв'яжеться з вами.</p>
+            
+            <form action="#" method="POST" class="contact-form">
+                
+                <p>
+                    <label for="userName">Ваше ім'я:</label><br>
+                    <input type="text" id="userName" name="userName" required placeholder="Іван Іванов">
+                </p>
+
+                <p>
+                    <label for="userEmail">Електронна пошта (email):</label><br>
+                    <input type="email" id="userEmail" name="userEmail" required placeholder="example@mail.com">
+                </p>
+
+                <p>
+                    <label for="userPhone">Номер телефону (tel):</label><br>
+                    <input type="tel" id="userPhone" name="userPhone" required pattern="[0-9]{10,12}" title="Введіть від 10 до 12 цифр без пробілів" placeholder="0991234567">
+                </p>
+
+                <p>
+                    <label for="userSocial">Посилання на ваш профіль LinkedIn або соцмережу (url):</label><br>
+                    <input type="url" id="userSocial" name="userSocial" required placeholder="https://linkedin.com/in/вашім'я">
+                </p>
+
+                <p>
+                    <label for="callTime">Бажана дата та час для дзвінка менеджера (datetime):</label><br>
+                    <input type="datetime-local" id="callTime" name="callTime" required>
+                </p>
+
+                <p>
+                    <label for="userCourse">Який курс вас цікавить?</label><br>
+                    <select id="userCourse" name="userCourse">
+                        <option value="frontend">Front-end розробка</option>
+                        <option value="python">Python для початківців</option>
+                        <option value="qa">QA Тестування</option>
+                        <option value="other">Інше / Потрібна консультація</option>
+                    </select>
+                </p>
+
+                <p>
+                    <input type="submit" value="Відправити заявку" class="submit-btn">
+                </p>
+                
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ІТ-Школа Tech-Edu. Всі права захищено.</p>
+    </footer>
+
+    <button id="scroll-to-top" title="Повернутися вгору">↑</button>
+    <script src="script.js"></script>
+
+</body>
+</html>

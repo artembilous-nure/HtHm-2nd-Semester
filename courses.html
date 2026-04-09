@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ІТ-Школа Tech-Edu | Наші Курси</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="header-logo">
+                <h1><i class="bi bi-cpu"></i> Tech-Edu</h1>
+            </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="index.html"><span>Головна</span></a></li>
+                    <li class="dropdown">
+                        <a href="courses.html"><span>Наші Курси ▾</span></a>
+                        <ul class="submenu">
+                            <li><a href="courses.html#frontend"><span>Front-end розробка</span></a></li>
+                            <li><a href="courses.html#python"><span>Python для початківців</span></a></li>
+                            <li><a href="courses.html#qa"><span>QA Тестування</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contacts.html"><span>Контакти</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="media-section">
+            <h2>Для ознайомлення</h2>
+            
+            <article class="video-container">
+                <h3>Відео-презентація</h3>
+                <video width="500" controls>
+                    <source src="media/promo.mp4" type="video/mp4">
+                    Ваш браузер не підтримує відтворення відео.
+                </video>
+            </article>
+
+            <article class="audio-container">
+                <h3>Подкаст: "Як увійти в ІТ у 2026 році"</h3>
+                <audio controls>
+                    <source src="media/podcast.mp3" type="audio/mpeg">
+                    Ваш браузер не підтримує відтворення аудіо.
+                </audio>
+            </article>
+        </section>
+
+        <hr>
+
+        <section id="frontend">
+            <h2>Front-end розробка (HTML/CSS/JS)</h2>
+            <p>Навчіться створювати сучасні веб-сайти з нуля. Випускники курсу вміють верстати макети та писати логіку на JavaScript.</p>
+            <h3>Додаткові матеріали з Вікіпедії</h3>
+            <iframe src="https://uk.wikipedia.org/wiki/HTML" width="100%" height="300" title="Довідка про HTML">
+                Ваш браузер не підтримує фрейми.
+            </iframe>
+        </section>
+
+        <section id="python">
+            <h2>Python для початківців</h2>
+            <p>Python — найпопулярніша мова для старту. Вивчимо основи синтаксису, роботу з базами даних та створення ботів.</p>
+        </section>
+
+        <section id="qa">
+            <h2>QA Тестування (Manual + Automation)</h2>
+            <p>Опануйте професію тестувальника. Навчимо знаходити баги, писати тестову документацію та автоматизовувати процеси.</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ІТ-Школа Tech-Edu. Всі права захищено.</p>
+    </footer>
+
+    <button id="scroll-to-top" title="Повернутися вгору">↑</button>
+    <script src="script.js"></script>
+
+</body>
+</html>
