@@ -1,5 +1,5 @@
 /* =========================================
-   ЗАДАНИЕ 3.2: Универсальный селектор (*)
+   Базові налаштування
 ========================================= */
 * {
     margin: 0;
@@ -7,8 +7,6 @@
     box-sizing: border-box;
 }
 
-
-/* Базовые стили для body (шрифты, цвета, фон) */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f5f7;
@@ -19,19 +17,17 @@ body {
     min-height: 100vh;
 }
 
-/* Основные стили для body */
-
 /* =========================================
-   ЗАДАНИЕ 3.1: Градиент и Тень текста
+   Блок Header (БЕМ)
 ========================================= */
-header {
+.header {
     background: linear-gradient(135deg, #092e73 0%, #4d7dd0 100%);
     color: white;
     padding: 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-.header-container {
+.header__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,7 +36,7 @@ header {
     padding: 20px;
 }
 
-.header-logo h1 {
+.header__logo h1 {
     margin: 0;
     font-size: 28px;
     font-weight: bold;
@@ -48,14 +44,11 @@ header {
 }
 
 /* =========================================
-   ЗАДАНИЕ 2.1: Горизонтальное выпадающее меню
+   Блок Nav (Меню - БЕМ)
 ========================================= */
-header nav {
-    background-color: transparent;
-}
+.nav { background-color: transparent; }
 
-/* ЗАДАНИЕ 3.2: Дочерний селектор (>) */
-header nav > ul {
+.nav__list {
     display: flex;
     justify-content: flex-end;
     list-style: none;
@@ -64,12 +57,9 @@ header nav > ul {
     gap: 0;
 }
 
-/* Дочерний селектор для элементов главного меню */
-header nav > ul > li {
-    position: relative;
-}
+.nav__item { position: relative; }
 
-header nav a {
+.nav__link {
     display: block;
     padding: 0 20px;
     color: white;
@@ -79,14 +69,12 @@ header nav a {
     position: relative;
 }
 
-/* Даем span относительное позиционирование */
-header nav a span {
+.nav__link span {
     position: relative;
     display: inline-block;
 }
 
-/* Создаем линию, которая равна ширине текста */
-header nav a span::after {
+.nav__link span::after {
     content: '';
     position: absolute;
     bottom: -3px; 
@@ -99,21 +87,13 @@ header nav a span::after {
     transition: transform 0.4s ease;
 }
 
-/* Анимация подчеркивания при наведении на кнопку */
-header nav a:hover span::after {
+.nav__link:hover span::after {
     transform-origin: left;
     transform: scaleX(1);
 }
 
-/* Для выпадающего меню чуть приподнимаем линию */
-header .submenu a span::after {
-    bottom: -2px;
-}
-
-
-
-/* Скрываем подменю по умолчанию */
-header .submenu {
+/* Випадаюче підменю */
+.nav__submenu {
     margin-top: 20px;
     border-radius: 8px;
     position: absolute;
@@ -127,128 +107,190 @@ header .submenu {
     visibility: hidden;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-    /* ЗАДАНИЕ 3.1: Тень для блока подменю */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Показываем подменю при наведении на родительский элемент */
-header li.dropdown:hover > .submenu {
+.nav__item_dropdown:hover > .nav__submenu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
-header .submenu a {
+.nav__sublink {
     color: black;
+    font-weight: bold;
     transition: background-color 0.3s ease;
     padding: 15px 20px;
     display: block;
     white-space: nowrap; 
+    text-decoration: none;
 }
 
+/* Анімація жовтої лінії для пунктів ПІДМЕНЮ */
+.nav__sublink span {
+    position: relative;
+    display: inline-block;
+}
+
+.nav__sublink span::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; 
+    left: 0;
+    width: 100%; 
+    height: 2px;
+    background-color: #ffcc00;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+}
+
+.nav__sublink:hover span::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
 
 /* =========================================
-   Стиль для основной части и колонок (aside)
+   GRID LAYOUT (Залізобетонна сітка)
 ========================================= */
-main {
-    display: flex;
-    flex-wrap: wrap;
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr; /* 1fr для aside, 3fr для контента */
+    gap: 20px;
     max-width: 1200px;
     margin: 20px auto;
-    gap: 20px;
     padding: 0 20px;
     flex: 1;
 }
 
-main hr {
+.grid-container hr {
+    grid-column: 1 / -1;
     width: 100%;
     border: none;
     border-top: 2px solid #ccc;
     margin: 10px 0;
 }
 
-#frontend, #python, #qa, .media-section {
-    flex: 0 0 100%;
-}
+/* Класи розподілу по сітці */
+.grid-full { grid-column: 1 / -1; }
+.grid-content { grid-column: 2 / 3; }
 
-section {
-    flex: 3; 
-    background-color: white;
-    padding: 25px;
-    border-radius: 8px;
-    /* ЗАДАНИЕ 3.1: Тень для блока (box-shadow) */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-aside {
-    flex: 1;
+.grid-sidebar {
+    grid-column: 1 / 2; 
+    grid-row: 2 / span 2; /* Розтягується на два ряди вниз */   
     background-color: #e9ecef;
     padding: 20px;
     border-radius: 8px;
-    border-left: 4px solid #2a5298; /* Рамки (border) */
+    border-left: solid #2a5298;
 }
 
+/* Спільний дизайн для всіх секцій */
+section {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Типографіка */
 h2 {
     color: #2a5298;
     margin-bottom: 15px;
     border-bottom: 2px solid #eee;
     padding-bottom: 5px;
 }
-
-h3, h4 {
-    margin: 15px 0 10px 0;
-}
-
-p, ul, ol {
-    margin-bottom: 15px;
-}
-
-ul, ol {
-    margin-left: 20px;
-}
+h3, h4 { margin: 15px 0 10px 0; }
+p, ul, ol { margin-bottom: 15px; }
+ul, ol { margin-left: 20px; }
 
 /* =========================================
-   Оформление таблицы
+   Блок Hero (Відео)
 ========================================= */
-table {
+.hero {
+    position: relative;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    padding: 0; /* Прибираємо стандартний паддінг секції */
+}
+
+.hero__video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: left;
-}
-
-th {
-    background-color: #2a5298;
+.hero__content {
+    position: relative;
+    z-index: 2;
     color: white;
+    max-width: 800px;
+    padding: 20px;
 }
 
-/* ЗАДАНИЕ 3.2: Псевдокласс :nth-child (зебра для таблицы) */
-tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+.hero__content h2 {
+    color: white;
+    font-size: 42px;
+    border: none;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-tbody tr:hover {
-    background-color: #f1f1f1;
+.hero__content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    line-height: 1.8;
+}
+
+.hero__btn {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #333;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 204, 0, 0.4);
+}
+
+.hero__btn:hover {
+    background-color: #e6b800;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 204, 0, 0.6);
 }
 
 /* =========================================
-   Оформление Формы (Блок 2.4)
+   Блок Contact Form
 ========================================= */
-.form-section p {
-    margin-bottom: 15px;
-}
+.contact p { margin-bottom: 15px; }
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="url"],
-input[type="datetime-local"],
-select {
+input[type="text"], input[type="email"], input[type="tel"],
+input[type="url"], input[type="datetime-local"], select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -256,15 +298,13 @@ select {
     font-family: inherit;
 }
 
-/* ЗАДАНИЕ 3.2: Псевдокласс :focus (стиль при клике на поле) */
 input:focus, select:focus {
     outline: none;
     border-color: #2a5298;
-    /* Тень при фокусе */
     box-shadow: 0 0 5px rgba(42, 82, 152, 0.5);
 }
 
-.submit-btn {
+.contact__btn_submit {
     background-color: #28a745;
     color: white;
     font-weight: bold;
@@ -272,31 +312,100 @@ input:focus, select:focus {
     border: none;
     padding: 12px 20px;
     border-radius: 4px;
-    /* Курсор в виде руки (Блок 1.5) */
     cursor: pointer; 
     transition: all 0.3s;
 }
 
-/* ЗАДАНИЕ 3.1: Прозрачность (opacity) при наведении */
-.submit-btn:hover {
+.contact__btn_submit:hover {
     opacity: 0.85; 
     box-shadow: 0 4px 8px rgba(40, 167, 69, 0.4);
 }
 
 /* =========================================
-   Медиа-контент (Видео и Аудио)
+   Завдання 3.5: Стилізований чекбокс
 ========================================= */
-.media-section article {
+.custom-checkbox {
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
 }
 
-video {
-    max-width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+/* 1. Ховаємо стандартний чекбокс, але залишаємо його функціональним */
+.custom-checkbox__input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
 }
 
-/* Подвал сайта */
+/* 2. Стилізуємо текст і робимо відступ зліва для нашого нового квадратика */
+.custom-checkbox__label {
+    position: relative;
+    padding-left: 32px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+/* 3. Малюємо порожній квадратик (за допомогою ::before) */
+.custom-checkbox__label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    border: 2px solid #2a5298;
+    border-radius: 4px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* 4. Малюємо галочку (за допомогою ::after), яка спочатку зменшена до нуля (scale 0) */
+.custom-checkbox__label::after {
+    content: '✔';
+    position: absolute;
+    left: 7px;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    color: white;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+/* 5. МАГІЯ: Коли невидимий інпут відмічено (:checked), змінюємо стиль сусіднього label */
+.custom-checkbox__input:checked + .custom-checkbox__label::before {
+    background-color: #28a745; /* Робимо фон зеленим */
+    border-color: #28a745;
+}
+
+.custom-checkbox__input:checked + .custom-checkbox__label::after {
+    transform: translateY(-50%) scale(1); /* Збільшуємо галочку, щоб її стало видно */
+}
+
+/* Ефект при фокусі клавіатурою (accessibility) */
+.custom-checkbox__input:focus + .custom-checkbox__label::before {
+    box-shadow: 0 0 5px rgba(42, 82, 152, 0.8);
+}
+
+/* =========================================
+   Блок Media та Таблиці
+========================================= */
+.media__item { margin-bottom: 20px; }
+video { max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+
+table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+th { background-color: #2a5298; color: white; }
+tbody tr:nth-child(even) { background-color: #f9f9f9; }
+tbody tr:hover { background-color: #f1f1f1; }
+
+/* =========================================
+   Підвал
+========================================= */
 footer {
     background-color: #222;
     color: #ccc;
@@ -306,7 +415,10 @@ footer {
     width: 100%;
 }
 
-#scroll-to-top {
+/* =========================================
+   Блок Scroll Button
+========================================= */
+.scroll-btn {
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -322,112 +434,149 @@ footer {
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    
-    /* НОВЫЕ СТРОКИ: Прячем кнопку по умолчанию */
     opacity: 0; 
     visibility: hidden;
-    transform: translateY(20px); /* Немного опускаем её вниз */
-    pointer-events: none; /* Чтобы нельзя было случайно нажать на невидимую кнопку */
-    
-    transition: all 0.3s ease;
+    transform: translateY(20px);
+    pointer-events: none;
+    transition: all 0.6s ease;
     z-index: 999;
 }
 
-/* Класс, который JS будет добавлять при скролле */
-#scroll-to-top.show {
+.scroll-btn_visible {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0); /* Возвращаем на место */
-    pointer-events: auto; /* Снова разрешаем клики */
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
-#scroll-to-top:hover {
+.scroll-btn:hover {
     background: linear-gradient(135deg, #4d7dd0 0%, #092e73 100%);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-    transform: translateY(-3px);
+    transform: translateY(-5px) scale(1.15) rotate(360deg);
 }
 
 /* =========================================
-   Hero-секція з фоновим відео (index.html)
+   Завдання 3.3: Хлібні крихти
 ========================================= */
-.hero-section {
-    flex: 0 0 100%; /* Розтягуємо блок на всю ширину сторінки */
-    position: relative;
-    height: 60vh; /* Висота блоку — 60% від висоти екрану */
+.breadcrumbs {
+    padding: 12px 25px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 10px; /* Трохи відступу до наступної секції */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.breadcrumbs__list {
+    list-style: none;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    overflow: hidden; /* Обрізаємо відео, якщо воно вилазить за краї */
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
 }
 
-/* Налаштування самого відео */
-.hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: 0;
-    transform: translate(-50%, -50%); /* Центруємо відео */
-    object-fit: cover; /* Відео розтягується без спотворення пропорцій */
+.breadcrumbs__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* Напівпрозорий темний шар, щоб білий текст було добре видно на тлі відео */
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Затемнення 60% */
-    z-index: 1;
-}
-
-/* Налаштування тексту */
-.hero-content {
-    position: relative;
-    z-index: 2; /* Текст лежить поверх відео та затемнення */
-    color: white;
-    max-width: 800px;
-    padding: 20px;
-}
-
-.hero-content h2 {
-    color: white;
-    font-size: 42px;
-    border: none; /* Прибираємо лінію під заголовком */
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-}
-
-.hero-content p {
-    font-size: 18px;
-    margin-bottom: 30px;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-    line-height: 1.8;
-}
-
-/* Красива кнопка */
-.hero-btn {
-    display: inline-block;
-    background-color: #ffcc00;
-    color: #333;
-    padding: 12px 30px;
-    text-decoration: none;
+/* Автоматично додаємо стрілочку між пунктами (крім останнього) */
+.breadcrumbs__item:not(:last-child)::after {
+    content: '>';
+    color: #888;
     font-weight: bold;
-    border-radius: 30px;
-    font-size: 18px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(255, 204, 0, 0.4);
 }
 
-.hero-btn:hover {
-    background-color: #e6b800;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(255, 204, 0, 0.6);
+.breadcrumbs__link {
+    text-decoration: none;
+    color: #2a5298;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.breadcrumbs__link:hover {
+    color: #ffcc00;
+    text-decoration: underline;
+}
+
+.breadcrumbs__current {
+    color: #666;
+}
+
+/* =========================================
+   АДАПТИВНІСТЬ (Медіа-запити) - Блок 2 та 3
+========================================= */
+@media (max-width: 768px) {
+    /* 1. Робимо сітку одноколонковою */
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* 2. Бокова панель (aside) стає на всю ширину під контентом */
+    .grid-sidebar {
+        grid-column: 1 / -1;
+        grid-row: auto;
+        border-bottom: none;
+        border-left: 4px solid #2a5298; /* Полоска переїжджає вниз */
+    }
+
+    /* 3. Звичайний контент теж на всю ширину */
+    .grid-content {
+        grid-column: 1 / -1;
+    }
+
+    /* 4. Адаптація шапки і меню (Вертикальне розташування) */
+    .header__container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav__list {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        width: 100%; /* Розтягуємо список */
+    }
+
+    /* ФІКС: Жорстко центруємо пункти меню, щоб текст не стрибав */
+    .nav__item {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav__link {
+        text-align: center; /* Текст завжди по центру */
+    }
+
+    /* Випадаюче меню на мобільних стає статичним (розкривається вниз) */
+    .nav__submenu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none; /* Сховано за замовчуванням */
+        box-shadow: none;
+        margin-top: 10px;
+        background-color: transparent;
+    }
+
+    .nav__sublink {
+        color: white;
+        text-align: center;
+    }
+
+    /* Показуємо підменю при натисканні/наведенні на мобільному */
+    .nav__item_dropdown:hover > .nav__submenu {
+        display: block;
+    }
+
+    /* 5. Зменшуємо текст у Hero-секції для телефонів */
+    .hero__content h2 {
+        font-size: 32px;
+    }
+    
 }

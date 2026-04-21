@@ -1,10 +1,10 @@
 const scrollToTopBtn = document.getElementById('scroll-to-top');
 window.addEventListener('scroll', () => {
-    // Если прокрутили больше 300 пикселей вниз
+    // Якщо прокрутили більше 150 пікселів вниз
     if (window.scrollY > 150) {
-        scrollToTopBtn.classList.add('show'); // Показываем кнопку
+        scrollToTopBtn.classList.add('scroll-btn_visible'); // БЕМ-модифікатор
     } else {
-        scrollToTopBtn.classList.remove('show'); // Прячем кнопку
+        scrollToTopBtn.classList.remove('scroll-btn_visible');
     }
 });
 

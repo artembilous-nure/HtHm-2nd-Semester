@@ -9,41 +9,47 @@
 </head>
 <body>
 
-    <header>
-        <div class="header-container">
-            <div class="header-logo">
+    <header class="header">
+        <div class="header__container">
+            <div class="header__logo">
                 <h1><i class="bi bi-cpu"></i> Tech-Edu</h1>
             </div>
-            <nav>
-                <ul class="main-menu">
-                    <li><a href="index.html"><span>Головна</span></a></li>
-                    <li class="dropdown">
-                        <a href="courses.html"><span>Наші Курси ▾</span></a>
-                        <ul class="submenu">
-                            <li><a href="courses.html#frontend"><span>Front-end розробка</span></a></li>
-                            <li><a href="courses.html#python"><span>Python для початківців</span></a></li>
-                            <li><a href="courses.html#qa"><span>QA Тестування</span></a></li>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link"><span>Головна</span></a></li>
+                    <li class="nav__item nav__item_dropdown">
+                        <a href="courses.html" class="nav__link"><span>Наші Курси ▾</span></a>
+                        <ul class="nav__submenu">
+                            <li class="nav__subitem"><a href="courses.html#frontend" class="nav__sublink"><span>Front-end розробка</span></a></li>
+                            <li class="nav__subitem"><a href="courses.html#python" class="nav__sublink"><span>Python для початківців</span></a></li>
+                            <li class="nav__subitem"><a href="courses.html#qa" class="nav__sublink"><span>QA Тестування</span></a></li>
                         </ul>
                     </li>
-                    <li><a href="contacts.html"><span>Контакти</span></a></li>
+                    <li class="nav__item"><a href="contacts.html" class="nav__link"><span>Контакти</span></a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
-        <section class="media-section">
+    <main class="grid-container">
+        <nav class="breadcrumbs grid-full">
+            <ul class="breadcrumbs__list">
+                <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Головна</a></li>
+                <li class="breadcrumbs__item"><span class="breadcrumbs__current">Наші Курси</span></li>
+            </ul>
+        </nav>
+        <section class="media grid-full">
             <h2>Для ознайомлення</h2>
             
-            <article class="video-container">
+            <article class="media__item media__item_video">
                 <h3>Відео-презентація</h3>
                 <video width="500" controls>
-                    <source src="media/Promo.mp4" type="video/mp4">
+                    <source src="media/promo.mp4" type="video/mp4">
                     Ваш браузер не підтримує відтворення відео.
                 </video>
             </article>
 
-            <article class="audio-container">
+            <article class="media__item media__item_audio">
                 <h3>Подкаст: "Як увійти в ІТ у 2026 році"</h3>
                 <audio controls>
                     <source src="media/podcast.mp3" type="audio/mpeg">
@@ -54,7 +60,7 @@
 
         <hr>
 
-        <section id="frontend">
+        <section id="frontend" class="grid-full">
             <h2>Front-end розробка (HTML/CSS/JS)</h2>
             <p>Навчіться створювати сучасні веб-сайти з нуля. Випускники курсу вміють верстати макети та писати логіку на JavaScript.</p>
             <h3>Додаткові матеріали з Вікіпедії</h3>
@@ -63,12 +69,12 @@
             </iframe>
         </section>
 
-        <section id="python">
+        <section id="python" class="grid-full">
             <h2>Python для початківців</h2>
             <p>Python — найпопулярніша мова для старту. Вивчимо основи синтаксису, роботу з базами даних та створення ботів.</p>
         </section>
 
-        <section id="qa">
+        <section id="qa" class="grid-full">
             <h2>QA Тестування (Manual + Automation)</h2>
             <p>Опануйте професію тестувальника. Навчимо знаходити баги, писати тестову документацію та автоматизовувати процеси.</p>
         </section>
@@ -79,7 +85,7 @@
         <p>&copy; 2026 ІТ-Школа Tech-Edu. Всі права захищено.</p>
     </footer>
 
-    <button id="scroll-to-top" title="Повернутися вгору">↑</button>
+    <button id="scroll-to-top" class="scroll-btn" title="Повернутися вгору">↑</button>
     <script src="script.js"></script>
 
 </body>

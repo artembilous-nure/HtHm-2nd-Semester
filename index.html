@@ -13,43 +13,43 @@
 </head>
 <body>
 
-    <header>
-        <div class="header-container">
-            <div class="header-logo">
+    <header class="header">
+        <div class="header__container">
+            <div class="header__logo">
                 <h1><i class="bi bi-cpu"></i> Tech-Edu</h1>
             </div>
-            <nav>
-                <ul class="main-menu">
-                    <li><a href="index.html"><span>Головна</span></a></li>
-                    <li class="dropdown">
-                        <a href="courses.html"><span>Наші Курси ▾</span></a>
-                        <ul class="submenu">
-                            <li><a href="courses.html#frontend"><span>Front-end розробка</span></a></li>
-                            <li><a href="courses.html#python"><span>Python для початківців</span></a></li>
-                            <li><a href="courses.html#qa"><span>QA Тестування</span></a></li>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link"><span>Головна</span></a></li>
+                    <li class="nav__item nav__item_dropdown">
+                        <a href="courses.html" class="nav__link"><span>Наші Курси ▾</span></a>
+                        <ul class="nav__submenu">
+                            <li class="nav__subitem"><a href="courses.html#frontend" class="nav__sublink"><span>Front-end розробка</span></a></li>
+                            <li class="nav__subitem"><a href="courses.html#python" class="nav__sublink"><span>Python для початківців</span></a></li>
+                            <li class="nav__subitem"><a href="courses.html#qa" class="nav__sublink"><span>QA Тестування</span></a></li>
                         </ul>
                     </li>
-                    <li><a href="contacts.html"><span>Контакти</span></a></li>
+                    <li class="nav__item"><a href="contacts.html" class="nav__link"><span>Контакти</span></a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
-        <section class="hero-section">
-            <video autoplay loop muted playsinline class="hero-video">
-                <source src="media/Promo.mp4" type="video/mp4">
+    <main class="grid-container">
+        <section class="hero grid-full">
+            <video autoplay loop muted playsinline class="hero__video">
+                <source src="media/promo.mp4" type="video/mp4">
             </video>
             
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
                 <h2>Творимо майбутнє разом</h2>
                 <p>Tech-Edu — це не просто курси. Це спільнота однодумців, де кожен знаходить свій шлях у світ високих технологій. Наша місія — зробити якісну ІТ-освіту доступною для кожного, хто готовий вчитися та створювати інновації.</p>
-                <a href="courses.html" class="hero-btn">Обрати напрямок</a>
+                <a href="courses.html" class="hero__btn">Обрати напрямок</a>
             </div>
         </section>
         
-        <aside>
+        <aside class="grid-sidebar">
             <h4>Наш офіс</h4>
             <img src="images/office.jpg" alt="Офіс ІТ-школи" width="250">
 
@@ -57,7 +57,7 @@
             <p>Читай більше про ІТ на <a href="https://dou.ua/" target="_blank">DOU.ua</a></p>
         </aside>
 
-        <section>
+        <section class="grid-content">
             <h2>Чому обирають нас?</h2>
             <article>
                 <h3>Практичний підхід</h3>
@@ -79,7 +79,7 @@
             </article>
         </section>
 
-        <section id="schedule">
+        <section id="schedule" class="grid-content">
             <h2>Розклад найближчих стартів (Таблиця)</h2>
             <table border="1" cellspacing="0" cellpadding="10">
                 <thead>
@@ -114,7 +114,7 @@
         <p>&copy; 2026 ІТ-Школа Tech-Edu. Всі права захищено.</p>
     </footer>
 
-    <button id="scroll-to-top" title="Повернутися вгору">↑</button>
+    <button id="scroll-to-top" class="scroll-btn" title="Повернутися вгору">↑</button>
     <script src="script.js"></script>
 
 </body>
