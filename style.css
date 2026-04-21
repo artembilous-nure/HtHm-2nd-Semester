@@ -155,7 +155,7 @@ body {
 ========================================= */
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 3fr; /* 1fr для aside, 3fr для контента */
+    grid-template-columns: 1fr 3fr; 
     gap: 20px;
     max-width: 1200px;
     margin: 20px auto;
@@ -171,20 +171,20 @@ body {
     margin: 10px 0;
 }
 
-/* Класи розподілу по сітці */
+
 .grid-full { grid-column: 1 / -1; }
 .grid-content { grid-column: 2 / 3; }
 
 .grid-sidebar {
     grid-column: 1 / 2; 
-    grid-row: 2 / span 2; /* Розтягується на два ряди вниз */   
+    grid-row: 2 / span 2; 
     background-color: #e9ecef;
     padding: 20px;
     border-radius: 8px;
     border-left: solid #2a5298;
 }
 
-/* Спільний дизайн для всіх секцій */
+
 section {
     background-color: white;
     padding: 25px;
@@ -192,7 +192,7 @@ section {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Типографіка */
+
 h2 {
     color: #2a5298;
     margin-bottom: 15px;
@@ -216,7 +216,7 @@ ul, ol { margin-left: 20px; }
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    padding: 0; /* Прибираємо стандартний паддінг секції */
+    padding: 0; 
 }
 
 .hero__video {
@@ -330,7 +330,6 @@ input:focus, select:focus {
     align-items: center;
 }
 
-/* 1. Ховаємо стандартний чекбокс, але залишаємо його функціональним */
 .custom-checkbox__input {
     position: absolute;
     opacity: 0;
@@ -339,7 +338,6 @@ input:focus, select:focus {
     width: 0;
 }
 
-/* 2. Стилізуємо текст і робимо відступ зліва для нашого нового квадратика */
 .custom-checkbox__label {
     position: relative;
     padding-left: 32px;
@@ -349,7 +347,6 @@ input:focus, select:focus {
     line-height: 1.4;
 }
 
-/* 3. Малюємо порожній квадратик (за допомогою ::before) */
 .custom-checkbox__label::before {
     content: '';
     position: absolute;
@@ -364,7 +361,6 @@ input:focus, select:focus {
     transition: all 0.3s ease;
 }
 
-/* 4. Малюємо галочку (за допомогою ::after), яка спочатку зменшена до нуля (scale 0) */
 .custom-checkbox__label::after {
     content: '✔';
     position: absolute;
@@ -376,17 +372,15 @@ input:focus, select:focus {
     transition: transform 0.3s ease;
 }
 
-/* 5. МАГІЯ: Коли невидимий інпут відмічено (:checked), змінюємо стиль сусіднього label */
 .custom-checkbox__input:checked + .custom-checkbox__label::before {
-    background-color: #28a745; /* Робимо фон зеленим */
+    background-color: #28a745; 
     border-color: #28a745;
 }
 
 .custom-checkbox__input:checked + .custom-checkbox__label::after {
-    transform: translateY(-50%) scale(1); /* Збільшуємо галочку, щоб її стало видно */
+    transform: translateY(-50%) scale(1); 
 }
 
-/* Ефект при фокусі клавіатурою (accessibility) */
 .custom-checkbox__input:focus + .custom-checkbox__label::before {
     box-shadow: 0 0 5px rgba(42, 82, 152, 0.8);
 }
@@ -456,78 +450,83 @@ footer {
 }
 
 /* =========================================
-   Завдання 3.3: Хлібні крихти
+   Завдання 3.3: Хлібні крихти (Сучасні, кроссбраузерні для IE8)
 ========================================= */
 .breadcrumbs {
     padding: 12px 25px;
     background-color: #e9ecef;
+    margin-bottom: 10px;
     border-radius: 8px;
-    margin-bottom: 10px; /* Трохи відступу до наступної секції */
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .breadcrumbs__list {
     list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
     margin: 0;
     padding: 0;
     font-size: 15px;
+    overflow: hidden; 
 }
 
 .breadcrumbs__item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* Автоматично додаємо стрілочку між пунктами (крім останнього) */
-.breadcrumbs__item:not(:last-child)::after {
-    content: '>';
-    color: #888;
-    font-weight: bold;
+    float: left;
 }
 
 .breadcrumbs__link {
+    position: relative;
     text-decoration: none;
     color: #2a5298;
     font-weight: bold;
-    transition: color 0.3s ease;
 }
 
-.breadcrumbs__link:hover {
-    color: #ffcc00;
-    text-decoration: underline;
+.breadcrumbs__link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; 
+    left: 0;
+    width: 100%; 
+    height: 2px;
+    background-color: #ffcc00;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+}
+
+.breadcrumbs__link:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
 }
 
 .breadcrumbs__current {
     color: #666;
 }
 
+.breadcrumbs__item + .breadcrumbs__item:before {
+    content: '>';
+    color: #888;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
 /* =========================================
    АДАПТИВНІСТЬ (Медіа-запити) - Блок 2 та 3
 ========================================= */
 @media (max-width: 768px) {
-    /* 1. Робимо сітку одноколонковою */
     .grid-container {
         grid-template-columns: 1fr;
     }
 
-    /* 2. Бокова панель (aside) стає на всю ширину під контентом */
     .grid-sidebar {
         grid-column: 1 / -1;
         grid-row: auto;
         border-bottom: none;
-        border-left: 4px solid #2a5298; /* Полоска переїжджає вниз */
+        border-left: 4px solid #2a5298; 
     }
 
-    /* 3. Звичайний контент теж на всю ширину */
     .grid-content {
         grid-column: 1 / -1;
     }
 
-    /* 4. Адаптація шапки і меню (Вертикальне розташування) */
     .header__container {
         flex-direction: column;
         gap: 15px;
@@ -537,10 +536,9 @@ footer {
         flex-direction: column;
         align-items: center;
         gap: 15px;
-        width: 100%; /* Розтягуємо список */
+        width: 100%; 
     }
 
-    /* ФІКС: Жорстко центруємо пункти меню, щоб текст не стрибав */
     .nav__item {
         width: 100%;
         display: flex;
@@ -549,16 +547,15 @@ footer {
     }
 
     .nav__link {
-        text-align: center; /* Текст завжди по центру */
+        text-align: center;
     }
 
-    /* Випадаюче меню на мобільних стає статичним (розкривається вниз) */
     .nav__submenu {
         position: static;
         opacity: 1;
         visibility: visible;
         transform: none;
-        display: none; /* Сховано за замовчуванням */
+        display: none; 
         box-shadow: none;
         margin-top: 10px;
         background-color: transparent;
@@ -569,12 +566,10 @@ footer {
         text-align: center;
     }
 
-    /* Показуємо підменю при натисканні/наведенні на мобільному */
     .nav__item_dropdown:hover > .nav__submenu {
         display: block;
     }
 
-    /* 5. Зменшуємо текст у Hero-секції для телефонів */
     .hero__content h2 {
         font-size: 32px;
     }
