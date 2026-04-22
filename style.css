@@ -574,4 +574,21 @@ footer {
         font-size: 32px;
     }
     
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; 
+        border: none; 
+    }
+
+   
+    section {
+        padding: 15px;
+    }
+    
+    th, td {
+        padding: 8px;
+        font-size: 14px;
+    }
 }
