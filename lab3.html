@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна №3 | JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header__container">
+            <div class="header__logo">
+                <h1><i class="bi bi-cpu"></i> Tech-Edu (Lab 3)</h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link"><span>На головну</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="grid-container">
+            <!-- =========================================
+            ЛАБОРАТОРНА №3: БЛОК 1
+            ========================================= -->
+        <section class="grid-full">
+            <h2>Лабораторна робота №3: Блок 1</h2>
+
+            <!-- Завдання 1: Зміна розміру шрифту -->
+            <h3>Завдання 1: Зміна розміру шрифту</h3>
+            <p id="resize-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem fuga maiores ipsam, reprehenderit ut voluptatibus iure eum a tempora iusto, magnam velit ad dicta aperiam non quae temporibus? Id, animi.</p>
+            <button class="contact__btn_submit" onclick="changeFontSize('resize-text', '24px')">Зробити 24px</button>
+            <button class="contact__btn_submit" onclick="changeFontSize('resize-text', '16px')">Повернути 16px</button>
+            <hr>
+
+            <!-- Завдання 3: Змінити всі <p> на 15px -->
+            <h3>Завдання 3: Змінити розмір всіх абзаців</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio aut, corrupti maxime tempore ratione eveniet nesciunt officiis, natus suscipit dolore ullam aperiam commodi doloremque voluptas vel tenetur velit, ad reiciendis?</p>
+            <button class="contact__btn_submit" onclick="changeAllParagraphs()">Встановити всім p 15px</button>
+            <hr>
+
+            <!-- Завдання 4: Текстовий годинник -->
+            <h3>Завдання 4: Годинник</h3>
+            <p id="text-clock">Завантаження часу...</p>
+            <hr>
+
+            <!-- Завдання 5: Ефект витирання -->
+            <h3>Завдання 5: Ефект поступового витирання</h3>
+            <div id="wipe-block" style="background: #2a5298; color: white; border-radius: 8px; overflow: hidden; height: 100px;">
+                <p style="margin: 20px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque error, debitis dolorum libero dolores eos voluptate veritatis amet earum nemo, ab odio. Doloribus amet minus nemo eius placeat alias illo.</p>
+            </div>
+            <button class="contact__btn_submit" onclick="wipeOutEffect()" style="margin-top: 10px;">Витерти блок</button>
+
+        </section>
+
+        <!-- =========================================
+             ЛАБОРАТОРНА №3: БЛОК 2 
+        ========================================= -->
+        <section class="grid-full" style="margin-top: 20px;">
+            <h2>Блок 2</h2>
+
+            <!-- Завдання 3: Список кольорів і квадрат -->
+            <h3>Завдання 3: Кольоровий квадрат</h3>
+            <div style="display: flex; gap: 20px;"> 
+                <div>
+                    <label for="color-select">Оберіть колір:</label><br>
+                    <select id="color-select" onchange="changeSquareColor()" style="padding: 5px; margin-top: 5px;">
+                        <option value="black">Чорний</option>
+                        <option value="red">Червоний</option>
+                        <option value="green">Зелений</option>
+                        <option value="blue">Синій</option>
+                        <option value="yellow">Жовтий</option>
+                    </select>
+                </div>
+                <div id="color-square" style="width: 100px; height: 100px; background-color: black; border: 2px solid #ccc;"></div>
+            </div>
+            <hr>
+
+            <!-- Завдання 4: Координати миші та код клавіатури -->
+            <h3>Завдання 4: Координати миші та клавіатура</h3>
+            <div id="tracker-box" style="background: #e9ecef; padding: 15px; border-radius: 8px; border-left: 4px solid #28a745;">
+                <p><strong>Координати миші:</strong> X: <span id="mouse-x">0</span>, Y: <span id="mouse-y">0</span></p>
+                <p><strong>Остання натиснута клавіша:</strong> <span id="key-code">Немає</span></p>
+            </div>
+            <hr>
+
+            <!-- Завдання 2: Міняємо колонки таблиці місцями -->
+            <h3>Завдання 2: Зміна колонок таблиці</h3>
+            <p>Введіть номери колонок (від 1 до 4), які хочете поміняти місцями:</p>
+            
+            <div style="margin-bottom: 15px; display: flex; gap: 15px; align-items: center;">
+                <label for="col1-input"><strong>Колонка 1:</strong></label>
+                <input type="number" id="col1-input" min="1" max="4" value="2" style="width: 60px; padding: 5px;">
+                
+                <label for="col2-input"><strong>Колонка 2:</strong></label>
+                <input type="number" id="col2-input" min="1" max="4" value="3" style="width: 60px; padding: 5px;">
+                
+                <button class="contact__btn_submit" onclick="swapTableColumnsDynamic()">Поміняти місцями</button>
+            </div>
+
+            <table id="swap-table" border="1" cellspacing="0" cellpadding="10" style="width: 100%; border-collapse: collapse; text-align: left;">
+                <thead style="background-color: #2a5298; color: white;">
+                    <tr>
+                        <th>Назва курсу</th>
+                        <th>Дата старту</th>
+                        <th>Тривалість</th>
+                        <th>Формат</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #f9f9f9;">
+                        <td>Front-end (HTML/CSS/JS)</td>
+                        <td>15 Вересня</td>
+                        <td>4 місяці</td>
+                        <td>Онлайн</td>
+                    </tr>
+                    <tr>
+                        <td>Python Basic</td>
+                        <td>20 Вересня</td>
+                        <td>3 місяці</td>
+                        <td>Офлайн</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+
+            <!-- Завдання 10: Заборона коду сторінки -->
+            <h3>Завдання 10: Захист сторінки (Заборона перегляду коду)</h3>
+            <p style="color: #d9534f; font-weight: bold;">На цій сторінці заблоковано праву кнопку миші (контекстне меню) та комбінації клавіш F12 і Ctrl+U.</p>
+            <div style="background: #fdf5e6; padding: 15px; border-left: 4px solid #f0ad4e;">
+                <strong>Шпаргалка: Як це обійти?</strong>
+                <ul>
+                    <li>Відключити JavaScript в налаштуваннях браузера.</li>
+                    <li>Відкрити інструменти розробника через головне меню браузера (Налаштування -> Додаткові інструменти -> Інструменти розробника), а не через гарячі клавіші чи мишу.</li>
+                    <li>Додати <code>view-source:</code> перед адресою сайту в адресному рядку.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- =========================================
+        ЛАБОРАТОРНА №3: БЛОК 3
+        ========================================= -->
+        <section class="grid-full" style="margin-top:20px">
+            <h2>Блок 3</h2>
+
+            <!-- Завдання 4: Пошук номерів кредитних карток -->
+            <h3>Завдання 4: Пошук номерів кредитних карток</h3>
+            <p id="credit-text">
+                "Іван вчора втратив свою кредитку, її номер 1178-9087-2384-8787. Тому він пішов в банк і описав ситуацію. Там пішли йому назустріч і видали нову кредитку під номером: 1103-8899-0811-1722."
+            </p>
+            <p style="margin-top: 15px; font-size: 18px;">
+                <strong>Знайдені номери:</strong> 
+                <span id="credit-result" style="color: #28a745; font-weight: bold;">[Натисніть кнопку]</span>
+            </p>
+            <button class="contact__btn_submit" onclick="findCreditCards()">Знайти номери карток</button>
+            <hr>
+
+            <!-- Завдання 5: Iнфо про браузер -->
+            <h3>Завдання 5: Інформація про браузер</h3>
+            <p>Дізнаємось, з якої сторінки ви сюди потрапили та яким браузером користуєтесь.</p>
+            <p style="margin-top: 15px; font-size: 18px;">
+                <strong>Звідки ви прийшли:</strong> <br> 
+                <span id="referrer-text" style="color: #28a745; font-weight: bold;">[Натисніть кнопку]</span>
+            </p>
+            <p style="margin-top: 15px; font-size: 18px;">
+                <strong>Ваш браузер:</strong> <br>
+                <span id="user-agent-text" style="color: #28a745; font-weight: bold;">[Натисніть кнопку]</span>
+            </p>
+            <button class="contact__btn_submit" onclick="showBrowserInfo()">Отримати інформацію</button>
+            <!-- <div id="browser-info" style="margin-top: 20px;">
+                <p><strong>Звідки ви прийшли:</strong> <br> <span id="referrer-text" style="color: #28a745; font-weight: bold;">[Натисніть кнопку]</span></p>
+                <p><strong>Ваш браузер:</strong> <br> <span id="user-agent-text" style="color: #28a745; font-weight: bold;">[Натисніть кнопку]</span></p>
+            </div> -->
+        </section>
+    </main>
+
+    <!-- Завдання 2: Стрибаюча картинка -->
+    <img id="jumping-img" src="https://cdn-icons-png.flaticon.com/512/1126/1126012.png" alt="Стрибаюча картинка" style="position: fixed; width: 50px; height: 50px; top: 100px; left: 100px; z-index: 1000;">
+
+    <script src="lab3.js"></script>
+</body>
+</html>
