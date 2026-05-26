@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Tech-Edu | Лабораторна №4 (Bootstrap)</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* стилі для карток */
+        .edu-card {
+            padding: 15px 5px; 
+            margin-bottom: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px; 
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80px; 
+        }
+        
+        .edu-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Синій блок (основні напрямки) */
+        .edu-card_primary {
+            background: linear-gradient(135deg, #092e73 0%, #2a5298 100%);
+            color: white;
+            border-left: 5px solid #ffcc00;
+        }
+
+        /* Зелений блок (технології) */
+        .edu-card_tech {
+            background-color: #ffffff;
+            color: #092e73;
+            border: 1px solid #dee2e6;
+            border-bottom: 4px solid #28a745;
+        }
+
+        /* Жовтий блок (акценти) */
+        .edu-card_highlight {
+            background-color: #ffcc00;
+            color: #333;
+            border: 2px solid #e6b800;
+        }
+
+        /* Червоний блок (терміново/важливо) */
+        .edu-card_urgent {
+            background-color: #d9534f;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header__container">
+            <div class="header__logo">
+                <h1>Tech-Edu (Lab 4)</h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link"><span>На головну</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mt-5">
+        <div class="grid-full mb-4">
+            <h2 class="text-center">Наші освітні модулі</h2>
+        </div>
+
+        <div class="row justify-content-md-center">
+            <div class="col-6 col-md-4">
+                <div class="edu-card edu-card_primary">
+                    <i class="bi bi-code-slash d-block mb-2"></i>
+                    Web Development
+                </div>
+            </div>
+            <div class="col-6 col-md-4">
+                <div class="edu-card edu-card_primary">
+                    <i class="bi bi-database d-block mb-2"></i>
+                    Data Science
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-5">
+
+        <h4 class="mb-4">Популярні технології</h4>
+        <div class="row">
+            <div class="col-2 d-none d-sm-block">
+                <div class="edu-card edu-card_tech">HTML5</div>
+            </div>
+            <div class="col-4 col-sm-2">
+                <div class="edu-card edu-card_tech">CSS3</div>
+            </div>
+            <div class="col-2 d-none d-sm-block">
+                <div class="edu-card edu-card_tech">JS ES6</div>
+            </div>
+            <div class="col-4 col-sm-2">
+                <div class="edu-card edu-card_tech">Python</div>
+            </div>
+            <div class="col-2 d-none d-sm-block">
+                <div class="edu-card edu-card_tech">Java</div>
+            </div>
+            <div class="col-4 col-sm-2">
+                <div class="edu-card edu-card_tech">C++</div>
+            </div>
+        </div>
+
+        <hr class="my-5">
+
+        <h4 class="mb-4">Сертифікація та підтримка</h4>
+        <div class="row">
+            <div class="col-3">
+                <div class="edu-card edu-card_highlight">IELTS Prep</div>
+            </div>
+            <div class="col-3 d-none d-sm-block">
+                <div class="edu-card edu-card_highlight">IT Exam</div>
+            </div>
+
+            <div class="col-2 offset-3 offset-sm-0">
+                <div class="edu-card edu-card_urgent">
+                   <span class="d-none d-sm-inline">Support</span>
+
+                   <span class="d-inline d-sm-none">SUPP</span>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="edu-card edu-card_urgent">FAQ</div>
+            </div>
+            <div class="col-2">
+                <div class="edu-card edu-card_urgent">
+                    <span class="d-none d-sm-inline">Contact</span>
+
+                     <span class="d-inline d-sm-none">CONT</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

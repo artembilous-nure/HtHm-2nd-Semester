@@ -92,6 +92,12 @@ body {
     transform: scaleX(1);
 }
 
+.nav__link:hover,
+.nav__link:focus {
+    color: white !important; /* Примусово залишаємо текст білим */
+    text-decoration: none !important; /* Вимикаємо стандартне синє підкреслення Bootstrap */
+}
+
 /* Випадаюче підменю */
 .nav__submenu {
     margin-top: 20px;
