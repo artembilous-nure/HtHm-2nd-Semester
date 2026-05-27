@@ -6,39 +6,61 @@
     <title>Tech-Edu | Лабораторна №4 (Bootstrap)</title>
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* стилі для карток */
         .edu-card {
-            padding: 15px 5px; 
             margin-bottom: 20px;
             border-radius: 8px;
             text-align: center;
-            font-weight: bold;
-            font-size: 14px; 
             transition: transform 0.3s ease;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 80px; 
+            overflow: hidden; 
+            height: calc(100% - 20px); /* Робить всі картки в одному ряду однакової висоти */
         }
         
         .edu-card:hover {
             transform: translateY(-5px);
         }
 
-        /* Синій блок (основні напрямки) */
+        /* Стилі для картинок всередині блоків */
+        .edu-card__img {
+            width: 100%;
+            height: 120px; /* Фіксована висота для картинок */
+            object-fit: cover; /* Заповнює область без спотворення пропорцій */
+        }
+
+        /* Стилі для текстової частини картки */
+        .edu-card__body {
+            padding: 15px 10px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; /* Дозволяє блоку розтягуватися */
+            justify-content: center;
+        }
+
+        .edu-card__title {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .edu-card__text {
+            font-size: 12px;
+            margin-bottom: 0;
+            opacity: 0.9;
+        }
+
+        /* Синій блок */
         .edu-card_primary {
             background: linear-gradient(135deg, #092e73 0%, #2a5298 100%);
             color: white;
             border-left: 5px solid #ffcc00;
         }
 
-        /* Зелений блок (технології) */
+        /* Зелений блок */
         .edu-card_tech {
             background-color: #ffffff;
             color: #092e73;
@@ -46,14 +68,19 @@
             border-bottom: 4px solid #28a745;
         }
 
-        /* Жовтий блок (акценти) */
+        /* Зменшуємо картинки для вузьких технологічних блоків */
+        .edu-card_tech .edu-card__img {
+            height: 80px; 
+        }
+
+        /* Жовтий блок */
         .edu-card_highlight {
             background-color: #ffcc00;
             color: #333;
             border: 2px solid #e6b800;
         }
 
-        /* Червоний блок (терміново/важливо) */
+        /* Червоний блок */
         .edu-card_urgent {
             background-color: #d9534f;
             color: white;
@@ -78,73 +105,134 @@
     <main class="container mt-5">
         <div class="grid-full mb-4">
             <h2 class="text-center">Наші освітні модулі</h2>
+            <p class="text-center text-muted">Детальна інформація про наші курси та сертифікації</p>
         </div>
 
         <div class="row justify-content-md-center">
-            <div class="col-6 col-md-4">
+            <div class="col-6 col-md-4 col-lg-6">
                 <div class="edu-card edu-card_primary">
-                    <i class="bi bi-code-slash d-block mb-2"></i>
-                    Web Development
+                    <img src="images/web.jpg" alt="Web Development" class="edu-card__img">
+                    <div class="edu-card__body">
+                        <div class="edu-card__title">Web Development</div>
+                        <p class="edu-card__text">Повний курс зі створення сучасних сайтів. Вивчи HTML, CSS та JS з нуля до рівня Junior.</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-6 col-md-4">
+            <div class="col-6 col-md-4 col-lg-6">
                 <div class="edu-card edu-card_primary">
-                    <i class="bi bi-database d-block mb-2"></i>
-                    Data Science
+                    <img src="images/data.jpg" alt="Data Science" class="edu-card__img">
+                    <div class="edu-card__body">
+                        <div class="edu-card__title">Data Science</div>
+                        <p class="edu-card__text">Аналіз даних, машинне навчання та штучний інтелект. Робота з великими масивами даних.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <hr class="my-5">
-
-        <h4 class="mb-4">Популярні технології</h4>
-        <div class="row">
-            <div class="col-2 d-none d-sm-block">
-                <div class="edu-card edu-card_tech">HTML5</div>
+        <hr class="mt-5 mb-0"> <h4 class="mb-4 mt-0">Популярні технології</h4> <div class="row">
+            <div class="col-md-2 d-none d-md-block">
+                <div class="edu-card edu-card_tech">
+                    <img src="images/HTML.jpg" alt="HTML5" class="edu-card__img">
+                    <div class="edu-card__body">
+                        <div class="edu-card__title">HTML5</div>
+                        <p class="edu-card__text">Основа будь-якого сайту. Навчіться створювати правильну семантичну структуру сторінок.</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-4 col-sm-2">
-                <div class="edu-card edu-card_tech">CSS3</div>
+            <div class="col-4 col-md-2">
+                <div class="edu-card edu-card_tech">
+                    <img src="images/CSS.jpg" alt="CSS3" class="edu-card__img">
+                    <div class="edu-card__body">
+                        <div class="edu-card__title">CSS3</div>
+                        <p class="edu-card__text">Зробіть ваші сайти красивими та адаптивними за допомогою сучасних стилів та анімацій.</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-2 d-none d-sm-block">
-                <div class="edu-card edu-card_tech">JS ES6</div>
+            <div class="col-md-2 d-none d-md-block">
+                <div class="edu-card edu-card_tech">
+                    <img src="images/JS.jpg" alt="JS" class="edu-card__img">
+                    <div class="edu-card__body">
+                        <div class="edu-card__title">JS ES6</div>
+                        <p class="edu-card__text">Додайте інтерактивності. Вивчіть сучасний стандарт мови програмування JavaScript.</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-4 col-sm-2">
-                <div class="edu-card edu-card_tech">Python</div>
+            <div class="col-4 col-md-2">
+                <div class="edu-card edu-card_tech">
+                    <img src="images/Py.jpg" alt="Python" class="edu-card__img">
+                    <div class="edu-card__body">
+                        <div class="edu-card__title">Python</div>
+                        <p class="edu-card__text">Потужна мова для бекенду та штучного інтелекту. Ідеальний вибір для старту в IT.</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-2 d-none d-sm-block">
-                <div class="edu-card edu-card_tech">Java</div>
+            <div class="col-md-2 d-none d-md-block">
+                <div class="edu-card edu-card_tech">
+                    <img src="images/JAVA.png" alt="Java" class="edu-card__img">
+                    <div class="edu-card__body">
+                        <div class="edu-card__title">Java</div>
+                        <p class="edu-card__text">Надійна технологія для створення складних корпоративних систем та Android-додатків.</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-4 col-sm-2">
-                <div class="edu-card edu-card_tech">C++</div>
+            <div class="col-4 col-md-2">
+                <div class="edu-card edu-card_tech">
+                    <img src="images/C++.jpg" alt="C++" class="edu-card__img">
+                    <div class="edu-card__body">
+                        <div class="edu-card__title">C++</div>
+                        <p class="edu-card__text">Опануйте ООП та створюйте високопродуктивні додатки або сучасні відеоігри.</p>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <hr class="my-5">
-
-        <h4 class="mb-4">Сертифікація та підтримка</h4>
-        <div class="row">
+        <hr class="mt-5 mb-0"> <h4 class="mb-4 mt-0">Сертифікація та підтримка</h4> <div class="row">
             <div class="col-3">
-                <div class="edu-card edu-card_highlight">IELTS Prep</div>
+                <div class="edu-card edu-card_highlight">
+                    <img src="images/IELTS.jpg" alt="IELTS" class="edu-card__img">
+                    <div class="edu-card__body">
+                        <div class="edu-card__title">IELTS Prep</div>
+                        <p class="edu-card__text">Підготовка до здачі міжнародного іспиту з англійської мови для роботи в IT-компаніях.</p>
+                    </div>
+                </div>
             </div>
             <div class="col-3 d-none d-sm-block">
-                <div class="edu-card edu-card_highlight">IT Exam</div>
+                <div class="edu-card edu-card_highlight">
+                    <img src="images/CISCO.jpg" alt="IT Exam" class="edu-card__img">
+                    <div class="edu-card__body">
+                        <div class="edu-card__title">IT Exam</div>
+                        <p class="edu-card__text">Отримайте міжнародно визнані сертифікати (Cisco, Microsoft) для підтвердження навичок.</p>
+                    </div>
+                </div>
             </div>
 
             <div class="col-2 offset-3 offset-sm-0">
                 <div class="edu-card edu-card_urgent">
-                   <span class="d-none d-sm-inline">Support</span>
-
-                   <span class="d-inline d-sm-none">SUPP</span>
+                   <img src="images/support.jpg" alt="Support" class="edu-card__img">
+                   <div class="edu-card__body">
+                       <span class="edu-card__title d-none d-sm-inline">Support</span>
+                       <span class="edu-card__title d-inline d-sm-none">SUPP</span>
+                       <p class="edu-card__text">Наша команда технічної підтримки готова допомогти вам 24/7.</p>
+                   </div>
                 </div>
             </div>
             <div class="col-2">
-                <div class="edu-card edu-card_urgent">FAQ</div>
+                <div class="edu-card edu-card_urgent">
+                    <img src="images/faq.jpg" alt="FAQ" class="edu-card__img">
+                    <div class="edu-card__body">
+                        <div class="edu-card__title">FAQ</div>
+                        <p class="edu-card__text">Знайдіть відповіді на найпоширеніші питання щодо навчання.</p>
+                    </div>
+                </div>
             </div>
             <div class="col-2">
                 <div class="edu-card edu-card_urgent">
-                    <span class="d-none d-sm-inline">Contact</span>
-
-                     <span class="d-inline d-sm-none">CONT</span>
+                    <img src="images/contact.jpg" alt="Contact" class="edu-card__img">
+                    <div class="edu-card__body">
+                        <span class="edu-card__title d-none d-sm-inline">Contact</span>
+                        <span class="edu-card__title d-inline d-sm-none">CONT</span>
+                        <p class="edu-card__text">Зв'яжіться з нашими менеджерами для безкоштовної консультації.</p>
+                    </div>
                 </div>
             </div>
         </div>
